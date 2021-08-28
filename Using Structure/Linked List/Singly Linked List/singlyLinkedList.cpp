@@ -287,19 +287,20 @@ void delete_tail()
 {
     if (tail == head)
     {
-        tail = NULL; 
+        tail = NULL;
     }
     else if (tail != NULL)
     {
-        singly *prevNode = get_node(tail->data, -1); 
-        prevNode->next = NULL; 
-        cout <<endl <<  "Tail Deleted"  << endl; 
+        singly *prevNode = get_node(tail->data, -1);
+        prevNode->next = NULL;
+        cout << endl
+             << "Tail Deleted" << endl;
     }
-    else 
+    else
     {
-        cout << "List is empty" << endl; 
+        cout << "List is empty" << endl;
     }
-    return; 
+    return;
 }
 
 void traverse()
@@ -309,7 +310,7 @@ void traverse()
     cout << endl;
     while (temp != NULL)
     {
-        cout << temp->data << "\t";
+        cout << temp->data << " -> ";
         temp = temp->next;
     }
     cout << endl;
@@ -351,17 +352,17 @@ int main()
                 insert_at_end(input);
                 break;
             case 3:
-                cout << "Enter the index at which value is to be inserted : " << endl;
+                cout << "Enter the index at which value is to be inserted : " ;
                 cin >> index;
                 insert_at_index(index, input);
                 break;
             case 4:
-                cout << "Enter the value before which the value is to be inserted : " << endl;
+                cout << "Enter the value before which the value is to be inserted : " ;
                 cin >> value;
                 insert_before_a_node(value, input);
                 break;
             case 5:
-                cout << "Enter the value after which the value is to be inserted : " << endl;
+                cout << "Enter the value after which the value is to be inserted : " ;
                 cin >> value;
                 insert_after_a_node(value, input);
                 break;
@@ -403,7 +404,7 @@ int main()
                 delete_head();
                 break;
             case 4:
-                // delete_tail();
+                delete_tail();
                 break;
             default:
                 cout << endl
