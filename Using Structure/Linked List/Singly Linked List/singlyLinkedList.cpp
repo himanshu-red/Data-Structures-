@@ -215,7 +215,9 @@ void delete_index(int index)
     }
     else if (index == nodeCount - 1)
     {
+
         singly *node = get_node(tail->data, -1);
+        tail = node; 
         node->next = NULL;
     }
     else
