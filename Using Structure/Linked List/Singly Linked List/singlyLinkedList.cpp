@@ -255,6 +255,7 @@ void delete_value(int input)
         }
         else if (tail->data == input)
         {
+            tail = prevNode; 
             prevNode->next = NULL;
         }
         else
@@ -294,6 +295,7 @@ void delete_tail()
     else if (tail != NULL)
     {
         singly *prevNode = get_node(tail->data, -1);
+        tail = prevNode; 
         prevNode->next = NULL;
         cout << endl
              << "Tail Deleted" << endl;
