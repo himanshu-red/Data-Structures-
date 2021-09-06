@@ -101,7 +101,7 @@ void insert_at_index(int index, int input)
 }
 
 singly *get_node(int value, int signal) // Returns the previous node of the node to be found if
-{                                       //signal = -1 and next of if sig == 1 and the node if sig == 1
+{                                       //signal = -1 and next of if sig == 1 and the current node if sig == 0
     singly *temp;
     temp = head;
     int index = 0;
