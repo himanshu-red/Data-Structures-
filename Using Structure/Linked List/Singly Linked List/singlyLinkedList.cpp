@@ -17,6 +17,23 @@ singly *create_a_node(int input)
     return node;
 }
 
+void reverse_list()
+{
+    singly *temp1 = head;
+    singly *temp2 = head;
+    singly *temp3 = head->next;
+    temp1->next = nullptr; 
+    while (temp3 != nullptr)
+    {
+        temp2 = temp3;
+        temp3 = temp3->next;
+        temp2->next = temp1;
+        temp1 = temp2;
+    }
+    head = temp2;
+    cout << "List reversed " << endl ;
+}
+
 void insert_at_begin(int input)
 {
     singly *node, *temp;
@@ -96,7 +113,7 @@ void insert_at_index(int index, int input)
 }
 
 singly *get_node(int value, int signal) // Returns the previous node of the node to be found if
-{                                       //signal = -1 and next of if sig == 1 and the node if sig == 1
+{                                       // signal = -1 and next of if sig == 1 and the node if sig == 1
     singly *temp;
     temp = head;
     int index = 0;
@@ -217,7 +234,7 @@ void delete_index(int index)
     {
 
         singly *node = get_node(tail->data, -1);
-        tail = node; 
+        tail = node;
         node->next = NULL;
     }
     else
@@ -255,7 +272,7 @@ void delete_value(int input)
         }
         else if (tail->data == input)
         {
-            tail = prevNode; 
+            tail = prevNode;
             prevNode->next = NULL;
         }
         else
@@ -295,7 +312,7 @@ void delete_tail()
     else if (tail != NULL)
     {
         singly *prevNode = get_node(tail->data, -1);
-        tail = prevNode; 
+        tail = prevNode;
         prevNode->next = NULL;
         cout << endl
              << "Tail Deleted" << endl;
@@ -331,7 +348,8 @@ int main()
         cout << "2. Find" << endl;
         cout << "3. Delete " << endl;
         cout << "4. Traverse" << endl;
-        cout << "5. End Operation" << endl;
+        cout << "5. Reverse List" << endl;
+        cout << "6. End Operation" << endl;
         cin >> option;
         switch (option)
         {
@@ -356,17 +374,17 @@ int main()
                 insert_at_end(input);
                 break;
             case 3:
-                cout << "Enter the index at which value is to be inserted : " ;
+                cout << "Enter the index at which value is to be inserted : ";
                 cin >> index;
                 insert_at_index(index, input);
                 break;
             case 4:
-                cout << "Enter the value before which the value is to be inserted : " ;
+                cout << "Enter the value before which the value is to be inserted : ";
                 cin >> value;
                 insert_before_a_node(value, input);
                 break;
             case 5:
-                cout << "Enter the value after which the value is to be inserted : " ;
+                cout << "Enter the value after which the value is to be inserted : ";
                 cin >> value;
                 insert_after_a_node(value, input);
                 break;
@@ -422,9 +440,13 @@ int main()
             break;
 
         case 5:
-            return 0;
+            reverse_list(); 
+            break; 
 
-        default:
+        case 6:
+            return 0; 
+
+            default:
             cout << endl
                  << "Invalid Entry" << endl;
             break;
